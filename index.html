@@ -259,7 +259,7 @@
         <div class="col-12">
           <h1 class="insta text-center">Contact Us More!</h1>
           <div class="forms">
-            <form id="gform" method="POST" action="https://script.google.com/macros/s/AKfycbzI7oHeKROGqF5yUSNU531Cr0r_ZuTelHH8yZjvqC5xn50IIEt08uTedaGzzd9j4v4z/exec">
+            <form id="submit-form" action="">
               <input class="form-control" type="text" id="name" name="name" placeholder="Enter your name"
                 required><br><br>
               <input class="form-control" type="email" id="email" name="email" placeholder="Enter your email"
@@ -306,26 +306,25 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-      $("#submit-form").submit((e)=>{
-          e.preventDefault()
-          $.ajax({
-              url:"https://docs.google.com/forms/d/e/1FAIpQLSfnIZd5eHORZenj2tg6zahnYPoZOnpB-Q7VxMcVsObUs7YCPg/viewform?embedded=true"
-              data:$("#submit-form").serialize(),
-              method:"post",
-              success:function (response){
-                  alert("Form submitted successfully")
-                  window.location.reload()
-                  //window.location.href="https://google.com"
-              },
-              error:function (err){
-                  alert("Something Error")
-  
-              }
-          })
-      })
-  </script>
-
+     <script>
+        $("#submit-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycbzI7oHeKROGqF5yUSNU531Cr0r_ZuTelHH8yZjvqC5xn50IIEt08uTedaGzzd9j4v4z/exec",
+                data:$("#submit-form").serialize(),
+                method:"post",
+                success:function (response){
+                    alert("Form submitted successfully")
+                    window.location.reload()
+                    //window.location.href="https://google.com"
+                },
+                error:function (err){
+                    alert("Something Error")
+    
+                }
+            })
+        })
+    </script>
 </body>
 
 </html>
