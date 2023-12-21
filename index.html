@@ -310,23 +310,17 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   
   <script>
-        $("#g-form").submit((e)=>{
-            e.preventDefault()
-            $.ajax({
-                url:"https://script.google.com/macros/s/AKfycbzvnzhTYH5FjyxmniWFfiLEFbeUw2zSKknd3SR6jmDGltpXU1eocO-dpFZc_yl5b6o/exec",
-                data:$("#g-form").serialize(),
-                method:"post",
-                success:function (response){
-                    alert("Form submitted successfully")
-                    window.location.reload()
-                    //window.location.href="https://google.com"
-                },
-                error:function (err){
-                    alert("Something Error")
-    
-                }
-            })
-        })
+        const scriptURL =""
+
+    const form = document.forms['g-form']
+
+    form.addEventListner('submit',e =>{
+      e.preventDefault()
+      fetch(scriptURL,{method='POST', body:new FormData(form)})
+    .then(response=>alert('Form submitted successfully'))
+    .then(()=>{window.location.reload();})
+    .catch(error=>console.error('Erroe!', error.messege))
+    })
     </script>
 </body>
 
