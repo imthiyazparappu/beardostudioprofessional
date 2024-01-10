@@ -307,21 +307,27 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   
-  <script>
-        const scriptURL ="https://script.google.com/macros/s/AKfycbzvnzhTYH5FjyxmniWFfiLEFbeUw2zSKknd3SR6jmDGltpXU1eocO-dpFZc_yl5b6o/exec"
-
-    const form = document.forms['g-form']
-
-    form.addEventListner('submit',e =>{
-      e.preventDefault()
-      fetch(scriptURL,{method='POST', body:new FormData(form)})
-    .then(response=>alert('Form submitted successfully'))
-    .then(()=>{window.location.reload();})
-    .catch(error=>console.error('Erroe!', error.messege))
-    })
-    </script>
+ <script>
+      $("#submit-form").submit((e)=>{
+          e.preventDefault()
+          $.ajax({
+              url:"https://script.google.com/macros/s/AKfycbwZ7b8lakjFRaaMpk3-qj06jaD6ORqAH_FI2SbUay-KC9FrcxsvNwdht3qIFtGUglQzKg/exec",
+              data:$("#submit-form").serialize(),
+              method:"post",
+              success:function (response){
+                  alert("Form submitted successfully")
+                  window.location.reload()
+                  //window.location.href="https://google.com"
+              },
+              error:function (err){
+                  alert("Something Error")
+  
+              }
+          })
+      })
+  </script>
 </body>
 
 </html>
