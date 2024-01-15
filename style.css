@@ -43,7 +43,7 @@
 
 #view-price {
     color: white;
-    background-color: darksalmon;
+    background-color: #502F8F;
     border-radius: 2rem;
     padding: 1rem;
     margin: 3rem;
@@ -79,7 +79,7 @@ form {
 
 #Contact {
     background-color: white;
-    color: darksalmon;
+    color: #502F8F;
     border-radius: 1rem;
     width: 10rem;
     font-weight: bold;
